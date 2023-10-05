@@ -1,0 +1,449 @@
+$black: #060606;
+$grey: #a5a5a5;
+$title-family: "Croissant One", cursive;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Source Sans 3", sans-serif;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+* {
+  box-sizing: border-box;
+}
+
+header {
+  nav {
+    padding: 15px 25px;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .logo-container {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      img {
+        height: 25px;
+      }
+      p {
+        color: white;
+        font-family: $title-family;
+      }
+    }
+    i {
+      color: #ffffff;
+      cursor: pointer;
+    }
+  }
+  .hero-section {
+    position: relative;
+    height: 200px;
+    .background-image {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+    .title-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.6)
+      );
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      .title {
+        color: white;
+        font-size: 40px;
+        padding: 20px;
+        text-align: right;
+        width: 50%;
+        margin: 0;
+      }
+    }
+  }
+}
+
+main {
+  padding: 20px;
+  .menu {
+    float: left;
+    height: 100%;
+    margin-right: 30px;
+    .menu-content {
+      margin: 0;
+      list-style: none;
+      padding-left: 0;
+      .menu-item {
+        overflow-y: hidden;
+
+        margin-bottom: 5px;
+        position: relative;
+        a {
+          color: black;
+        }
+      }
+    }
+  }
+  .content {
+    h2 {
+      font-family: $title-family;
+      margin-top: 0;
+    }
+    p {
+      margin: 0;
+    }
+
+    .team-section {
+      padding: 30px 0;
+      display: flex;
+      table {
+        width: 100%;
+        .team-header {
+          font-family: $title-family;
+          font-size: 1.5em;
+          text-align: left;
+        }
+        .category-name {
+          font-family: $title-family;
+          font-size: 1.5em;
+          text-align: right;
+        }
+        .separator {
+          position: relative;
+          height: 50px;
+          td::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50px;
+            right: 50px;
+            height: 1px;
+            background-color: $black;
+          }
+        }
+        .profile {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          img {
+            width: 70px;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+    .destinations-section {
+      display: flex;
+      height: 500px;
+      background-color: $black;
+      color: white;
+      .destinations-title-container {
+        width: 40%;
+        display: flex;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        padding: 50px;
+
+        .destinations-title {
+          font-family: $title-family;
+          font-size: 50px;
+          margin: 0;
+        }
+        .destinations-sub {
+          font-size: 20px;
+          font-family: "Source Sans 3", sans-serif;
+        }
+      }
+      .destinations-images-container {
+        width: 60%;
+        display: flex;
+        flex-wrap: wrap;
+        .destinations-image-container {
+          width: 50%;
+          height: 50%;
+          overflow: hidden;
+          &:hover > img {
+            transform: scale(1.05);
+          }
+          img {
+            transition-duration: 0.4s;
+            width: 100%;
+            object-fit: cover;
+            height: 100%;
+          }
+        }
+      }
+    }
+    .addresses-section {
+      display: block;
+      .carousel {
+        position: relative;
+        overflow: hidden;
+        background-color: $grey;
+
+        #carousel-items {
+          height: 100%x;
+          width: 100%;
+          display: flex;
+          transition-duration: 0.4s;
+          .carousel-item {
+            flex-shrink: 0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            .carousel-item-data {
+              width: 50%;
+              height: 100%;
+              &.carousel-item-infos {
+                padding: 15px;
+                h3 {
+                  font-family: $title-family;
+                }
+                ul li {
+                  font-family: "Source Sans 3", sans-serif;
+                }
+              }
+              &.carousel-item-map {
+                iframe {
+                  width: 100%;
+                  height: 100%;
+                }
+              }
+            }
+          }
+        }
+        .carousel-overlay {
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px;
+          .carousel-button {
+            background-color: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            i {
+              font-size: 30px;
+            }
+            &:disabled {
+              opacity: 0.5;
+              cursor: initial;
+            }
+          }
+        }
+      }
+    }
+    .form-content {
+      display: flex;
+      flex-direction: column;
+      max-width: 800px;
+      #reservation-form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        .form-group {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          &.d-none {
+            display: none;
+          }
+          label,
+          p {
+            display: block;
+            width: 50%;
+            text-align: right;
+          }
+          input,
+          select,
+          textarea {
+            width: 50%;
+            margin: 0;
+            padding: 5px;
+            border: 1px solid $grey;
+            border-radius: 3px;
+          }
+          &.box-group input[type="checkbox"],
+          &.box-group input[type="radio"] {
+            width: auto;
+          }
+          .radio-group {
+            width: 50%;
+            .radio-label-group {
+              display: flex;
+              gap: 5px;
+              label {
+                width: 50%;
+                text-align: right;
+              }
+              input {
+                width: auto;
+              }
+            }
+          }
+        }
+        .button-group {
+          display: flex;
+          gap: 15px;
+          button {
+            width: 100%;
+          }
+        }
+      }
+    }
+    .confirmation-section {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      .btn-back {
+        margin-top: 15px;
+        width: 70px;
+      }
+    }
+  }
+}
+.btn {
+  text-align: center;
+  padding: 7px;
+  border: none;
+  border-radius: 5px;
+  transition: 0.3s;
+  text-decoration: none;
+  color: white;
+  &:hover {
+    cursor: pointer;
+    &.validate {
+      background-color: darkgreen;
+    }
+    &.reset {
+      background-color: darkred;
+    }
+    &.info {
+      background-color: #afafaf;
+    }
+  }
+  &.validate {
+    background-color: green;
+  }
+  &.reset {
+    background-color: red;
+  }
+  &.info {
+    background-color: #d1d1d1;
+    color: black;
+  }
+}
+footer {
+  background-color: $black;
+  color: white;
+  padding: 15px;
+  clear: both;
+  .contact {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    justify-content: space-around;
+    li {
+      flex-basis: 200px;
+      border: 1px solid white;
+      padding: 5px;
+    }
+  }
+  .icons {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    .navigation {
+      .logo-container {
+        p {
+          display: none;
+        }
+      }
+      i {
+        display: none;
+      }
+    }
+    .hero-section {
+      .title-container {
+        padding: 20px;
+        .title {
+          font-size: 30px;
+          width: 100%;
+          text-align: center;
+          &::first-letter {
+            font-size: 40px;
+          }
+        }
+      }
+    }
+  }
+  main {
+    .menu {
+      position: absolute;
+      top: 15px;
+      right: 0;
+      height: auto;
+      .menu-content {
+        display: flex;
+        gap: 10px;
+        .menu-item a {
+          color: white;
+        }
+      }
+    }
+    .content {
+      .agency-section {
+        .agency-title-container {
+          .agency-title {
+            text-align: right;
+            font-size: 30px;
+            padding: 20px;
+          }
+        }
+        .agency-content-container {
+          .agency-content {
+            padding: 20px;
+            font-size: 15px;
+          }
+        }
+      }
+      .destinations-section {
+        flex-direction: column-reverse;
+        height: auto;
+        .destinations-title-container {
+          .destinations-title {
+            font-size: 30px;
+          }
+          .destinations-sub {
+            font-size: 15px;
+          }
+        }
+        .destinations-images-container,
+        .destinations-title-container {
+          width: 100%;
+        }
+        .destinations-images-container .destinations-image-container {
+          height: 200px;
+        }
+      }
+    }
+  }
+}
